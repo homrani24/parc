@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Auth;
+use App\User;
+
+//use App\Http\Controllers\Auth;
 class LoginController extends Controller
 {
     /*
@@ -43,18 +47,24 @@ class LoginController extends Controller
      * 
      */
     public function login(Request $request){
-        dd($request->all());
+        //dd($request->all());
         if(Auth::attempt([
             'email' => $request->email,
             'password' => $request->password
         ]))
         {
-            $user=User::where('email',$request->email)->first();
+            $user= User::where('email',$request->email)->first();
             if($user->is_active()){
-                
+             return redirect()->route('home');   
+            }
+            else{
+             return redirect()->route('home');   
+
             }
 
         }
+        return redirect()->back();   
+
 
         
     }

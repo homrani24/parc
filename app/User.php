@@ -26,4 +26,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /*
+    is active etat
+    */
+    public function is_active(){
+        if($this->etat){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
