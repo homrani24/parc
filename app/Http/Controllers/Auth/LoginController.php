@@ -55,10 +55,24 @@ class LoginController extends Controller
         {
             $user= User::where('email',$request->email)->first();
             if($user->is_active()){
-             return redirect()->route('home');   
+             if($user->role=='admin'){
+             return redirect()->route('admin');   
+             }
+             else if($user->role=='technicien'){
+             return redirect()->route('technicien');   
+             }
+             else if($user->role=='user'){
+             return redirect()->route('user');   
+             }
+             else if($user->role=='supervisseur'){
+             return redirect()->route('supervisseur');   
+             }
+             else{
+                return redirect()->route('home');   
+             }
             }
             else{
-             return redirect()->route('home');   
+             return redirect()->route('404');   
 
             }
 

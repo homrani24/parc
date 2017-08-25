@@ -18,7 +18,27 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/404', function () {
+    return view('ereur/page404');
+ })->name('404');
 
+Route::get('/admin', function () {
+    return view('admin/index');
+ })->name('admin');
+
+Route::get('/technicien', function () {
+    return view('technicien/index');
+ })->name('technicien');
+
+
+Route::get('/user', function () {
+    return view('user/index');
+ })->name('user');
+
+
+Route::get('/supervisseur', function () {
+    return view('supervisseur/index');
+ })->name('supervisseur');
 
 Route::post('/login/custom', [
     'uses'=>'Auth\LoginController@login',
