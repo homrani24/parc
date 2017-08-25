@@ -44,3 +44,4 @@ Route::post('/login/custom', [
     'uses'=>'Auth\LoginController@login',
     'as'=>'login.custom'
 ]);
+Route::get('/logoute', 'Auth\LoginController@logout')->name('logoute');

@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    son compte n'est pas activé
+
                 </div>
             </div>
         </div>

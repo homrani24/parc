@@ -58,6 +58,12 @@
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
                                 </a>
+
+                                @if ($errors->has('msg'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('msg') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                     </form>

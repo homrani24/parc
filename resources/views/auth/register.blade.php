@@ -34,7 +34,7 @@
                                         <option value="">....</option>
                                         <option value="utilisteur">Utilisteur</option>
                                         <option value="technicien">technicien</option>
-                                        <option value="super viseur">super viseur</option>
+                                        <option value="superviseur">super viseur</option>
                                     </select>
 
                                 @if ($errors->has('role'))
