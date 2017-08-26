@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   // return view('welcome');
+   return redirect('/login');   
+   
 });
 
 Auth::routes();
@@ -22,26 +24,50 @@ Route::get('/404', function () {
     return view('ereur/page404');
  })->name('404');
 
-Route::get('/admin', function () {
-    return view('admin/index');
- })->name('admin');
-
-Route::get('/technicien', function () {
-    return view('technicien/index');
- })->name('technicien');
-
-
-Route::get('/user', function () {
-    return view('user/index');
- })->name('user');
-
-
-Route::get('/supervisseur', function () {
-    return view('supervisseur/index');
- })->name('supervisseur');
 
 Route::post('/login/custom', [
     'uses'=>'Auth\LoginController@login',
     'as'=>'login.custom'
 ]);
 Route::get('/logoute', 'Auth\LoginController@logout')->name('logoute');
+// user
+Route::group(['middleware' => 'userauth:user'], function () {
+    //
+
+Route::get('/user', function () {
+    return view('user/index');
+ })->name('user');
+
+});
+// supervisseur
+Route::group(['middleware' => 'userauth:supervisseur'], function () {
+    //
+
+
+    Route::get('/supervisseur', function () {
+        return view('supervisseur/index');
+     })->name('supervisseur');
+    
+});
+//  technicien
+Route::group(['middleware' => 'userauth:technicien'], function () {
+    //
+
+    Route::get('/technicien', function () {
+        return view('technicien/index');
+     })->name('technicien');
+    
+ 
+});
+
+// admin midlware
+Route::group(['middleware' => 'userauth:admin'], function () {
+    //
+
+
+    Route::get('/admin', function () {
+        return view('admin/index');
+     })->name('admin');
+        
+ 
+});
