@@ -15,6 +15,14 @@
     <link href="{{ asset('resources/assets/css/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- NProgress -->
     <link href="{{ asset('resources/assets/css/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
+    <!-- Datatables -->
+	  <link href="{{ asset('resources/assets/css/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
+    <link href="{{ asset('resources/assets/css/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('resources/assets/css/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('resources/assets/css/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('resources/assets/css/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('resources/assets/css/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Datatables -->
     
     <!-- Custom Theme Style -->
     <link href="{{ asset('resources/assets/css/build/css/custom.min.css') }}" rel="stylesheet">
@@ -58,19 +66,19 @@
                       <li><a href="index3.html">Afficher les tikets</a></li>
                     </ul>
                   </li>
-				  <li><a><i class="fa fa-user"></i> Gestion des utilisateurs  <span class="fa fa-chevron-down"></span></a>
+				          <li><a><i class="fa fa-user"></i> Gestion des utilisateurs  <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.html">Ajout d'un utilisateur</a></li>
-                      <li><a href="index3.html">Consulter les utilisateurs</a></li>
+                      <li><a href="{{ route('tableusers') }}">Consulter les utilisateurs</a></li>
                     </ul>
                   </li>
-				  <li><a><i class="fa fa-sitemap"></i> Gestion des matériels  <span class="fa fa-chevron-down"></span></a>
+				          <li><a><i class="fa fa-sitemap"></i> Gestion des matériels  <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.html">Ajout d'un matériel</a></li>
                       <li><a href="index3.html">Consulter les matériels</a></li>
                     </ul>
                   </li>
-				  <li><a><i class="fa fa-hospital-o"></i> Gestion des centres  <span class="fa fa-chevron-down"></span></a>
+				          <li><a><i class="fa fa-hospital-o"></i> Gestion des centres  <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.html">Ajout d'un centre</a></li>
                       <li><a href="index3.html">Consulter les centres</a></li>
@@ -94,7 +102,7 @@
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ route('logoute') }}">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -112,7 +120,8 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">Admin
+                    <img src="images/img.jpg" alt="">
+                    {{ Auth::user()->name }} 
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -220,6 +229,23 @@
     <script src="{{ asset('resources/assets/css/vendors/nprogress/nprogress.js') }}"></script>
     <!-- validator -->
     <script src="{{ asset('resources/assets/css/vendors/validator/validator.js') }}"></script>
+    	    <!-- Datatables -->
+    <script src="{{ asset('resources/assets/css/vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('resources/assets/css/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('resources/assets/css/vendors/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('resources/assets/css/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('resources/assets/css/vendors/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
+    <script src="{{ asset('resources/assets/css/vendors/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('resources/assets/css/vendors/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('resources/assets/css/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js') }}"></script>
+    <script src="{{ asset('resources/assets/css/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js') }}"></script>
+    <script src="{{ asset('resources/assets/css/vendors/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('resources/assets/css/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js') }}"></script>
+    <script src="{{ asset('resources/assets/css/vendors/datatables.net-scroller/js/dataTables.scroller.min.js') }}"></script>
+    <script src="{{ asset('resources/assets/css/vendors/jszip/dist/jszip.min.js') }}"></script>
+    <script src="{{ asset('resources/assets/css/vendors/pdfmake/build/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('resources/assets/css/vendors/pdfmake/build/vfs_fonts.js') }}"></script>
+
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('resources/assets/css/build/js/custom.min.js') }}"></script>
 

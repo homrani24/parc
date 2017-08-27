@@ -70,4 +70,11 @@ Route::group(['middleware' => 'userauth:admin'], function () {
      })->name('admin');
         
  
+     //Route::get('/admin/users', function () {
+       // return view('admin/table');
+    // })->name('table');
+     Route::get('/admin/users', 'UserControlleur@afficherlesusers')->name('tableusers');
+     Route::get('/admin/etat/{id}', 'UserControlleur@changeretat')->name('changetat');
+     Route::get('/admin/supp/{id}', 'UserControlleur@supprimeuser')->name('supprimeuser');
+     
 });
