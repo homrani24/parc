@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
    // return view('welcome');
-   return redirect('/login');   
+   return redirect()->route('logoute');   
    
 });
 
@@ -62,17 +62,9 @@ Route::group(['middleware' => 'userauth:technicien'], function () {
 
 // admin midlware
 Route::group(['middleware' => 'userauth:admin'], function () {
-    //
-
-
     Route::get('/admin', function () {
         return view('admin/index');
-     })->name('admin');
-        
- 
-     //Route::get('/admin/users', function () {
-       // return view('admin/table');
-    // })->name('table');
+     })->name('admin'); 
      Route::get('/admin/users', 'UserControlleur@afficherlesusers')->name('tableusers');
      Route::get('/admin/etat/{id}', 'UserControlleur@changeretat')->name('changetat');
      Route::get('/admin/supp/{id}', 'UserControlleur@supprimeuser')->name('supprimeuser');
