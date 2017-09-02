@@ -18,11 +18,17 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
+                  
 
                     <form class="form-horizontal form-label-left" method="POST" action="{{ route('modifprofil') }}" novalidate>
 
                       </p>
                       <span class="section">Personal Info</span>
+                      @if(session()->has('message'))
+                  <div class="alert alert-success">
+                   {{ session()->get('message') }}
+                  </div>
+                  @endif
 
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nom <span class="required">*</span>

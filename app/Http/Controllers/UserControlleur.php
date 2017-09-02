@@ -53,7 +53,7 @@ class UserControlleur extends Controller
         $user->email = $request->email;
         $user->save();
         
-        return redirect()->route('profil');   
+        return redirect()->route('profil')->with('message', 'les informations modifiées avec succes');;   
         
     }
 }
