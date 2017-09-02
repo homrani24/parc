@@ -68,5 +68,7 @@ Route::group(['middleware' => 'userauth:admin'], function () {
      Route::get('/admin/users', 'UserControlleur@afficherlesusers')->name('tableusers');
      Route::get('/admin/etat/{id}', 'UserControlleur@changeretat')->name('changetat');
      Route::get('/admin/supp/{id}', 'UserControlleur@supprimeuser')->name('supprimeuser');
+     Route::get('/admin/profil', 'UserControlleur@profil')->name('profil');
+     Route::post('/admin/modifprofil', 'UserControlleur@modifprofil')->name('modifprofil');
      
 });
