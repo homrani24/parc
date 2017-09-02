@@ -2,23 +2,11 @@
 
 namespace Illuminate\Session;
 
-use Session;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Session\Middleware\StartSession;
-use App\Extensions\MongoSessionStore;
-
 
 class SessionServiceProvider extends ServiceProvider
 {
-	    public function boot()
-    {
-        Session::extend('mongo', function($app) {
-            // Return implementation of SessionHandlerInterface...
-            return new MongoSessionStore;
-        });
-    }
-
-
     /**
      * Register the service provider.
      *

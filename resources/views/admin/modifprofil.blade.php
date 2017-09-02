@@ -124,6 +124,64 @@
               </div>
             </div>
           </div>
+
+            <div class="">
+                <div class="clearfix"></div>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+
+                                <form class="form-horizontal form-label-left" method="POST" action="{{ route('modifpass') }}" novalidate>
+
+                                    </p>
+                                    <span class="section">Mot de passe</span>
+
+                                    @if (Session::has('success'))
+                                        <div class="alert alert-success">{!! Session::get('success') !!}</div>
+                                    @endif
+                                    @if (Session::has('failure'))
+                                        <div class="alert alert-danger">{!! Session::get('failure') !!}</div>
+                                    @endif
+
+                                    <div class="item form-group">
+                                        <label for="password" class="control-label col-md-3">Mot de passe actuel</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input id="password" type="password" name="password" data-validate-length="5,8" class="form-control col-md-7 col-xs-12" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="item form-group">
+                                        <label for="password" class="control-label col-md-3">Nouveau mot de passe </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input id="password" type="password" name="passwordn" data-validate-length="5,20" class="form-control col-md-7 col-xs-12" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="item form-group">
+                                        <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">Confirmer le nouveau mot de passe</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input id="password2" type="password" name="passwordc" data-validate-linked="passwordn" class="form-control col-md-7 col-xs-12" required="required">
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-md-offset-3">
+                                            <button id="send" type="submit" class="btn btn-success">Modifier</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- /page content -->
 

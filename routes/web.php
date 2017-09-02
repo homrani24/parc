@@ -70,5 +70,6 @@ Route::group(['middleware' => 'userauth:admin'], function () {
      Route::get('/admin/supp/{id}', 'UserControlleur@supprimeuser')->name('supprimeuser');
      Route::get('/admin/profil', 'UserControlleur@profil')->name('profil');
      Route::post('/admin/modifprofil', 'UserControlleur@modifprofil')->name('modifprofil');
-     
+     Route::post('/admin/modifpass', 'UserControlleur@modifpass')->name('modifpass');
+
 });

@@ -5,6 +5,7 @@ use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\profilRequest;
+use Illuminate\Support\Facades\Hash;
 
 class UserControlleur extends Controller
 {
@@ -40,6 +41,28 @@ class UserControlleur extends Controller
         $user= User::find($id);
         return view('admin/modifprofil', ['user' => $user]);
     
+    }
+    public function modifpass(Request $request){
+        //dd($request);
+        $id = Auth::id();
+        $user= User::find($id);
+        $hashedPassword = $user->password;
+
+        if (Hash::check($request->password, $hashedPassword)) {
+            //Change the password
+            $user->fill([
+                'password' => Hash::make($request->passwordn)
+            ])->save();
+
+            $request->session()->flash('success', 'votre mot de passe a été changé.');
+
+            return redirect()->route('profil');
+        }
+
+        $request->session()->flash('failure', 'Votre mot de passe n\'a pas été modifié.');
+
+        return redirect()->route('profil');
+
     }
 
     public function modifprofil(profilRequest $request){
